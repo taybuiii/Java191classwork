@@ -1,1 +1,45 @@
+public class Main {
+    public static void main(String[] args) {
+        //task: Define method sortArray that takes an array of integers and # of elements in array as parameters.
 
+        int[] myArray = {1, 5, 8, 4, 2}; // array parameters
+        int i; //for sortArray method
+        int arraySize = myArray.length;
+        sortArray(myArray, arraySize);
+    }
+
+        //BUBBLE SORTING PROGRAM (highest to lowest)
+        //task: write main program that reads a list of integers from input, stores the integers in an array,
+        //calls sortarray(), and outputs the sorted array.
+    public static void sortArray(int[] myArray,int arraySize){
+          boolean sortArray = true;
+          //makes sortArray either true(sorted correctly) or false
+
+        int count = 0;
+        while (sortArray) {
+            sortArray = false;
+
+            int largest = myArray[0];
+            int largestIndex = 0;
+
+            for (int i = 0; i < arraySize - count; i++) {
+
+                if(largest < myArray[i]){
+                    largest = myArray[i];
+                    largestIndex = i;
+                    sortArray = true;
+                }
+
+            }
+            int temp = myArray[arraySize-count-1];
+            myArray[arraySize-count-1] = largest;
+            myArray[largestIndex] = temp;
+            count++;
+        }
+        for(int i=0; i< arraySize; i++) {
+            System.out.println(myArray[i]);
+        }
+    }
+
+
+}
