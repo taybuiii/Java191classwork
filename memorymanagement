@@ -1,0 +1,59 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+class Recommendation {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //Use main() to create an object of the class.
+
+        ArrayList<String> bookGenres =
+                new ArrayList<>(Arrays.asList("Horror", "Fantasy", "Children"));
+        // 3 different genres of books
+        //Horror: The Shining (Stephen King)
+        //Fantasy: Harry Potter(JK Rowling),
+        //Children: Green Eggs and Ham (Dr. Seuss),
+
+        System.out.println("What genre of books are you looking for? Options: " + bookGenres);
+        String genre = scan.next();
+        String description;
+        //grabs user input genre, stores in string
+            switch (genre) {
+                case "Horror":
+                    System.out.println("We recommend The Shining by Stephen King! Would you like to see a description? Yes/No");
+                    description = scan.next();
+                    if (description.equals("Yes")) {
+                        System.out.println("You can find the description at the following website: https://stephenking.com/works/novel/shining.html");
+                    }
+
+                    break;
+                case "Fantasy":
+                    System.out.println("We recommend Harry Potter by J.K. Rowling! Would you like to see a description? Yes/No");
+                    description = scan.next();
+                    if (description.equals("Yes")) {
+                        System.out.println("You can find the description at the following website: https://www.britannica.com/topic/Harry-Potter-and-the-Philosophers-Stone");
+                    }
+                    break;
+                case "Children":
+                    System.out.println("We recommend Green Eggs and Ham by Dr. Seuss! Would you like to see a description? Yes/No");
+                    description = scan.next();
+                    if (description.equals("Yes")) {
+                        System.out.println("You can find the description at the following website: https://poemanalysis.com/dr-seuss/green-eggs-and-ham/");
+                    }
+                    break;
+                default:
+                    System.out.println("Invalid.");
+            }
+        }
+
+    public class Main {
+        public static void main(String[] args) {
+            Recommendation myRec = new Recommendation();
+            System.out.println(myRec.getClass());
+
+        }
+    }
+
+
+    //end bracket
+}
