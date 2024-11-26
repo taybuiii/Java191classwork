@@ -1,0 +1,46 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.LinkedList;
+
+//create program that reads the name of a text file containing a list of photo file names.
+//the program then reads the photo file names from the text file,
+//replaces the "_photo.jpg" portion of the file names with "_info.txt",
+// outputs the modified file names.
+public class Main {
+    public static void main(String[] args) {
+
+        LinkedList<String> photoCollection = new LinkedList<String>();
+        photoCollection.add("Acadia2003_photo.jpg\n" +
+                "AmericanSamoa1989_photo.jpg\n" +
+                "BlackCanyonoftheGunnison1983_photo.jpg\n" +
+                "CarlsbadCaverns2010_photo.jpg\n" +
+                "CraterLake1996_photo.jpg\n" +
+                "GrandCanyon1996_photo.jpg\n" +
+                "IndianaDunes1987_photo.jpg\n" +
+                "LakeClark2009_photo.jpg\n" +
+                "Redwood1980_photo.jpg\n" +
+                "VirginIslands2007_photo.jpg\n" +
+                "Voyageurs2006_photo.jpg\n" +
+                "WrangellStElias1987_photo.jpg\n");
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("ParkPhotos.txt"));
+            for (String photos : photoCollection) {
+                String read = reader.readLine();
+
+
+                while (photos != null) {
+                    String newPhotoCollection = read.replace("_photo.jpg", "_info.txt");
+                    read = reader.readLine();
+                    System.out.println(newPhotoCollection);
+                }
+            }
+            reader.close();
+        }
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+}
