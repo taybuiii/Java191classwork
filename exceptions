@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        try {
+            System.out.println("Enter number of steps: ");
+            int steps = scan.nextInt();
+            double miles = stepsToMiles(steps);
+            System.out.printf("You walked %.2f miles.", miles);
+            scan.close();
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static double stepsToMiles(int steps) throws Exception {
+        if (steps < 0) {
+            throw new Exception("Exception: Negative step count entered.");
+        }
+        return steps / 2000.0;
+    }
+}
