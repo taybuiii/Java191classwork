@@ -1,0 +1,41 @@
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        //create a way to receive/read inputted text lines
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Please enter the suspected palindrome: ");
+        //user input goes here!!
+
+        String txtline = scan.nextLine();
+        Deque<Character> deque = new LinkedList<>();
+        //deque is implemented by a linkedlist
+
+        //puts input char -> deque
+        for (int i = 0; i < txtline.length(); i++) {
+            //when i less txt.length, loop counter+1
+            char chartxtline = txtline.charAt(i);
+                deque.addLast(chartxtline);
+        }
+        //check if deque = palindrome
+        boolean isAPalindrome = true;
+        while (deque.size()>1 ){
+            char firstchar = deque.removeFirst();
+            char lastchar =deque.removeLast();
+
+            if (firstchar != lastchar){
+                isAPalindrome = false;
+            }
+        }
+
+        //results for YES/NO palindrome
+        if (isAPalindrome){
+            System.out.println("Yes, "+txtline+" is a palindrome.");
+        }
+        else {
+            System.out.println("No, "+txtline+" is not a palindrome.");
+        }
+    }
+}
