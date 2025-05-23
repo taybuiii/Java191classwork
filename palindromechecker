@@ -1,3 +1,5 @@
+//This code checks if a user-inputted word is a palindrome (same backwards and forwards)
+
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Scanner;
